@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../Assests/logo.png'
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import { Cartwidget } from './Cartwidget'
 
 const Navbar = () => {
   return (
@@ -12,7 +12,7 @@ const Navbar = () => {
         <a style={styles.links} href="">Mujer</a>
         <a style={styles.links} href="">Niños</a>
         </nav>
-        <ShoppingCartCheckoutIcon/>
+        <Cartwidget></Cartwidget>
 
     </header>
   )
