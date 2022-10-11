@@ -12,10 +12,10 @@ const App = () => {
     <>
     <BrowserRouter>
     <CartContextProvider>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path='/' element={<ItemListContainer greeting={mensaje} />}/>
-        <Route path='/category/:id' element={<ItemListContainer greeting={mensaje} />}/>
+        <Route path='/category/:category' element={<ItemListContainer greeting={mensaje} />}/>
         <Route path='/product/:id' element={ <ItemDetailContainer />}/>
         <Route path='/cart' element={<CartView />}/>
       </Routes>

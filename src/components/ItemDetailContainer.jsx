@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import  ItemDetail  from "./ItemDetail";
 import { API } from "../constante/api";
 import { useParams } from "react-router-dom";
+import { db } from "../Firebase/Firebase";
+import { doc, getDoc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 
@@ -10,26 +12,22 @@ const ItemDetailContainer = () => {
       const { id } = useParams();
   
       useEffect(() => {
-        const url = `${API.PRODUCTO}${id}`;
-        const getItem = async () => {
-    
-          try {
-            const res = await fetch(url);
-            const data = await res.json();
-            setListProduct(data);
-          }
-          catch(err) {
-            console.log("Error:", err);
-            console.error("Error:", err);
-          }
-          finally {
-            setLoading(false);
-          }
-        }
-    
-        getItem();
-    
-      },{})
+        const productCollection = collection(db, 'product');
+        const docRef = doc(productCollection,id)
+        console.log(docRef);
+        getDoc(docRef)
+        .then((resultado) => {
+          setListProduct(
+            {
+              ...resultado.data(),
+              id: resultado.id,
+            }
+          );
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, [id]);
   
   return (
     <>
