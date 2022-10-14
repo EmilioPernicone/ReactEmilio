@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { db } from '../Firebase/Firebase';
 import { collection, addDoc, serverTimestamp, } from "firebase/firestore";
 import { useCartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const Formularios = () => {
 
@@ -38,6 +39,7 @@ const comprador = {
         
         cleanCart();
       })
+      alert('compra realizada con exito')
     }
 
 
@@ -71,7 +73,10 @@ setEmails([...Email, Emails]);
       <>
           <p className='price'>Precio Total: ${totalPrice()}</p>
           <button onClick={cleanCart}>Vaciar carrito</button>
-          <button onClick={finalizarCompra}>finalizarCompra</button>
+
+          <Link to="/">
+        <button onClick={finalizarCompra}>finalizarCompra</button>
+          </Link>
         </>
         
 </div>
