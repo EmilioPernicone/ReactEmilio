@@ -2,11 +2,16 @@ import React from "react";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
 import { useCartContext } from '../../context/CartContext';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { db } from "../../Firebase/Firebase"
+import { collection, addDoc, serverTimestamp, } from "firebase/firestore";
+ 
 
 export const CartView = () => {
 
   const { cartList, totalPrice, removeProduct, cleanCart } = useCartContext();
+
+ 
 
   return (
     <>
@@ -30,8 +35,15 @@ export const CartView = () => {
         <>
           <p className='price'>Precio Total: ${totalPrice()}</p>
           <button onClick={cleanCart}>Vaciar carrito</button>
+
+          
         </>
       }
+      <>
+       <Link to="/Formularios">
+            <button>Finalizar Compra</button>
+          </Link>
+      </>
     </>
   );
 };
