@@ -3,6 +3,7 @@ import { db } from '../Firebase/Firebase';
 import { collection, addDoc, serverTimestamp, } from "firebase/firestore";
 import { useCartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const Formularios = () => {
 
@@ -39,7 +40,11 @@ const comprador = {
         
         cleanCart();
       })
-      alert('compra realizada con exito')
+      swal({
+        title: "¡Felicitaciones!",
+        text: "Tu compra ha sido realizada con éxito.",
+        icon: "success",
+      });
     }
 
 
