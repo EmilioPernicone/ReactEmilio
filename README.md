@@ -1,4 +1,4 @@
-# Proyecto E-Commerce ds
+# Proyecto E-Commerce 
 
 Mi nombre es Emilio Pernicone, este proyecto presenta el desarrollo de un E-commerce de una tienda ficticia.
 
